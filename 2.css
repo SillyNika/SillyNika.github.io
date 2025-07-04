@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   margin: 0;
   background-color: #d6d6d6; /* Subtle background for the page */
@@ -270,4 +271,278 @@ img {
   .food-list ul {
     padding-left: 15px;
   }
+=======
+body {
+  margin: 0;
+  background-color: #d6d6d6; /* Subtle background for the page */
+  font-family: 'Roboto Condensed', sans-serif;
+  line-height: 1.6; /* Improved readability */
+  color: #333; /* Default text color */
+}
+
+/* Layout Container */
+.content-wrapper {
+  background-color: white;
+  width: 90%; /* Slightly wider for better content display */
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer, more modern shadow */
+  display: flex;
+  gap: 30px; /* Increased space between main and sidebar */
+  border-radius: 8px; /* Slightly rounded corners for the whole container */
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 3; /* Main content takes more space */
+  min-width: 60%;
+  padding-right: 20px; /* More internal padding */
+}
+
+/* Sidebar Area */
+.sidebar {
+  flex: 1; /* Sidebar takes less space */
+  min-width: 250px; /* Slightly larger minimum width for sidebar */
+  background-color: #f8f8f8; /* Lighter background for distinction */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+}
+
+/* --- Navigation Bar --- */
+.main-nav {
+  background-color: #333;
+  overflow: hidden; /* Clears floats */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for sticky nav */
+}
+
+.main-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Use flexbox for easy horizontal alignment */
+  justify-content: flex-start; /* Align items to the start */
+  height: 48px; /* Increased height for better tap targets */
+  align-items: center; /* Vertically center items */
+}
+
+
+.main-nav li.float-right {
+  margin-left: auto; /* Pushes this item to the far right */
+}
+
+.main-nav a {
+  display: block; /* Make the entire link area clickable */
+  color: white;
+  text-align: center;
+  padding: 0 18px; /* Adjusted padding */
+  text-decoration: none;
+  font-size: 1.1em; /* Slightly larger font */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  line-height: 48px; /* Match nav height for vertical centering */
+}
+
+.main-nav a:hover {
+  background-color: #555; /* Darker hover for better contrast */
+}
+
+.main-nav a.active {
+  background-color: #e74c3c; /* A more vibrant red */
+  font-weight: 700; /* Bold for active */
+}
+
+/* --- Content Headings & Paragraphs --- */
+h1 {
+  text-align: center;
+  font-size: 2.8em; /* Responsive font sizing */
+  margin-top: 10px;
+  margin-bottom: 25px;
+  color: #2c3e50; /* Darker, more professional heading color */
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+p {
+  font-size: 1.7em; /* Slightly larger base font size for paragraphs */
+  margin-bottom: 1em;
+}
+
+.description {
+  font-size: 1.5em; /* Smaller descriptive text */
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.food-list ul {
+  list-style-type: disc;
+  padding-left: 25px; /* Reduced indent for a cleaner look */
+  margin: 0;
+}
+
+.food-list ul li {
+  margin-bottom: 25px; /* More space between food items */
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+.food-list ul li:last-child {
+  border-bottom: none; /* No separator for the last item */
+}
+
+.food-list h2 {
+  font-size: 1.8em; /* Keep main food item headings distinct */
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #2980b9; /* A blue for item titles */
+}
+
+/* Image Styles */
+img {
+  max-width: 100%; /* Ensures images don't overflow their containers */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Removes extra space below images */
+  margin-top: 15px;
+  border-radius: 5px; /* Slightly rounded image corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Specifics */
+.sidebar h2,
+.sidebar h3 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.sidebar p {
+  text-align: center;
+  font-size: 0.95em;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none; /* No bullets in sidebar */
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.sidebar li {
+  margin-bottom: 8px;
+  text-align: center; /* Center sidebar links */
+}
+
+.sidebar li a {
+  color: #2980b9; /* Blue for sidebar links */
+  text-decoration: none;
+  padding: 5px 10px;
+  display: inline-block; /* Allows padding and margin */
+  transition: color 0.3s ease, transform 0.2s ease;
+  font-size: 1em;
+}
+
+.sidebar li a:hover {
+  color: #3498db;
+  text-decoration: underline;
+  transform: translateX(5px); /* Subtle slide effect on hover */
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px; /* Larger clickable area */
+  background-color: #28a745; /* A pleasant green for the button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar button:hover {
+  background-color: #218838;
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .content-wrapper {
+    width: 95%; /* More width on smaller desktops */
+    flex-direction: column; /* Stack columns on tablets */
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .main-content,
+  .sidebar {
+    min-width: unset; /* Remove min-width to allow full flexibility */
+    padding-right: 0; /* Remove extra padding on main content */
+  }
+
+  .sidebar {
+    order: -1; /* Place sidebar above main content on mobile */
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 576px) { /* <--- THIS IS THE MISSING OPENING BRACKET */
+  .main-nav ul {
+    flex-direction: column; /* Stack nav items on very small screens */
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .main-nav li {
+    width: 100%; /* Full width for stacked items */
+    text-align: center;
+  }
+
+  .main-nav li.float-right {
+    margin-left: 0; /* Remove auto margin for stacking */
+  }
+
+  .main-nav a {
+    padding: 10px 0;
+    line-height: normal; /* Adjust line height for stacked items */
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .food-list ul {
+    padding-left: 15px;
+  }
+>>>>>>> 92f447a8053e290c9a07cd519389656d717b550c
 } /* <--- THIS IS THE MISSING CLOSING BRACKET */
