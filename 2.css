@@ -1,10 +1,15 @@
 
+*, *::before, *::after {
+    box-sizing: border-box; /* Universal box-sizing for consistent layout */
+}
+
 body {
   margin: 0;
   background-color: #d6d6d6; /* Subtle background for the page */
   font-family: 'Roboto Condensed', sans-serif;
   line-height: 1.6; /* Improved readability */
   color: #333; /* Default text color */
+  overflow-x: hidden; /* Prevent horizontal scrollbar and gap */
 }
 
 /* Layout Container */
@@ -18,6 +23,7 @@ body {
   display: flex;
   gap: 30px; /* Increased space between main and sidebar */
   border-radius: 8px; /* Slightly rounded corners for the whole container */
+  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
 }
 
 /* Main Content Area */
@@ -25,6 +31,7 @@ body {
   flex: 3; /* Main content takes more space */
   min-width: 60%;
   padding-right: 20px; /* More internal padding */
+  flex-grow: 1; /* Allow main content to grow */
 }
 
 /* Sidebar Area */
@@ -35,6 +42,7 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+  flex-shrink: 0; /* Prevent sidebar from shrinking too much */
 }
 
 /* --- Navigation Bar --- */
@@ -58,9 +66,8 @@ body {
   align-items: center; /* Vertically center items */
 }
 
-
 .main-nav li.float-right {
-  margin-left: auto; /* Pushes this item to the far right */
+  margin-left: auto; /* Pushes this item to the far right using flexbox */
 }
 
 .main-nav a {
@@ -223,10 +230,12 @@ img {
   .sidebar {
     min-width: unset; /* Remove min-width to allow full flexibility */
     padding-right: 0; /* Remove extra padding on main content */
+    width: 100%; /* Ensure full width when stacked */
   }
 
   .sidebar {
     order: -1; /* Place sidebar above main content on mobile */
+    margin-top: 0; /* Adjust margin when stacked */
     padding: 15px;
   }
 
@@ -243,10 +252,10 @@ img {
   }
 }
 
-@media (max-width: 576px) { /* <--- THIS IS THE MISSING OPENING BRACKET */
+@media (max-width: 576px) {
   .main-nav ul {
     flex-direction: column; /* Stack nav items on very small screens */
-    height: auto;
+    height: auto; /* Allow height to adjust */
     padding-bottom: 10px;
   }
 
@@ -257,6 +266,7 @@ img {
 
   .main-nav li.float-right {
     margin-left: 0; /* Remove auto margin for stacking */
+    float: none; /* Ensure no residual float behavior */
   }
 
   .main-nav a {
@@ -271,7 +281,4 @@ img {
   .food-list ul {
     padding-left: 15px;
   }
-
-
->>>>>>> 92f447a8053e290c9a07cd519389656d717b550c
-} /* <--- THIS IS THE MISSING CLOSING BRACKET */
+}
