@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 body {
   margin: 0;
   background-color: #d6d6d6; /* Subtle background for the page */
@@ -271,7 +271,7 @@ img {
   .food-list ul {
     padding-left: 15px;
   }
-=======
+
 
 >>>>>>> 92f447a8053e290c9a07cd519389656d717b550c
 } /* <--- THIS IS THE MISSING CLOSING BRACKET */
