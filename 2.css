@@ -252,27 +252,31 @@ img {
   }
 }
 
+/* ==== KEEP NAV HORIZONTAL ON ALL SIZES ==== */
 @media (max-width: 576px) {
+  /* 1️⃣  keep the UL horizontal, just let items wrap if needed */
   .main-nav ul {
-    flex-direction: column; /* Stack nav items on very small screens */
-    height: auto; /* Allow height to adjust */
-    padding-bottom: 10px;
+    flex-direction: row;          /* stay horizontal      */
+    flex-wrap: wrap;              /* drop to 2nd line if necessary */
+    overflow-x: auto;             /* optional: swipe‑scroll on very tiny screens */
+    padding-bottom: 0;
+    height: 48px;                 /* same as desktop      */
   }
 
-  .main-nav li {
-    width: 100%; /* Full width for stacked items */
-    text-align: center;
-  }
-
+  /* 2️⃣  make each list item behave like desktop */
+  .main-nav li,
   .main-nav li.float-right {
-    margin-left: 0; /* Remove auto margin for stacking */
-    float: none; /* Ensure no residual float behavior */
+    width: auto;                  /* no forced full‑width */
+    margin-left: 0;
   }
 
+  /* 3️⃣  slightly tighter spacing so four links fit comfortably */
   .main-nav a {
-    padding: 10px 0;
-    line-height: normal; /* Adjust line height for stacked items */
+    padding: 0 14px;
+    font-size: 1em;
   }
+}
+
 
   h1 {
     font-size: 1.8em;
