@@ -1,393 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="2.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Good Protein Sources</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Mari </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e0e0; /* Lighter text for dark background/video */
+            text-align: center;
+            position: relative;
+            min-height: 100vh; /* Ensure body is at least full height */
+            overflow-y: auto; /* Enable vertical scrolling for the body */
+            background-color: #000; /* Fallback background color if video fails */
+        }
 
-  <body>
-    <nav class="main-nav">
-      <ul>
-        <li><a class="active" href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="float-right"><a href="#about">About</a></li>
-      </ul>
-    </nav>
+        /* --- Overlay Styling --- */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 100;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
 
-    <div class="content-wrapper">
-      <main class="main-content">
-        <h1>Good Protein Sources</h1>
+        #overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
 
-        <p>
-          Recently started going to the gym? Great! But just going to the gym
-          won't give you gains. You need a lot of protein for your body to
-          actually grow.
-          <strong
-            >You need about 1.2 to 1.7 grams of protein per kilogram of body
-            weight per day to make progress.</strong
-          >
-          So, here are some food recommendations rich in protein.
-        </p>
+        #overlay p {
+            margin-top: 20px;
+            font-size: 0.6em;
+            opacity: 0.8;
+        }
 
-        <section class="food-list">
-          <ul>
-            <li>
-              <h2>Chicken Breast</h2>
-              <p class="description">
-                This is a classic for a reason! Chicken breast is lean, meaning
-                it's packed with protein without a lot of extra fat. It's also
-                super versatile – you can grill it, bake it, shred it for
-                tacos, or toss it in a salad. It's like a blank canvas for
-                flavor.
-                <br /><strong
-                  >&bull; Per 100g of Chicken Breast contains 31g of
-                  protein.</strong
-                ><br />
-                <strong
-                  >&bull; A skinless, cooked Chicken Breast (174g) contains 56g
-                  of Protein.</strong
-                >
-              </p>
-              <img
-                src="https://www.verywellfit.com/thmb/plVw2u4gZVKVhsa70Cj-vDsgGag=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-breast_annotated-0898203736ef4b1a90f2fb5cb4c4b1ad.jpg"
-                alt="Chicken Breast"
-              />
-            </li>
+        /* --- Video Background Styling --- */
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+            background-size: cover;
+        }
 
-            <li>
-              <h2>Turkey Breast</h2>
-              <p class="description">
-                Turkey breast is an excellent protein source, very similar to
-                chicken breast in its lean profile and versatility. It's often
-                chosen as a healthier alternative to red meat due to its lower
-                saturated fat content.
-                <br /><strong
-                  >&bull; Per 100g of Turkey Breast contains 29g of
-                  protein.</strong
-                ><br />
-                <strong
-                  >&bull; A skinless, cooked Turkey Breast (174g) contains
-                  approximately 50g of protein.</strong
-                >
-              </p>
-              <img src="turkey_annotated-b66cb3d317d44f35be63a0e5b1117f5b.jpg" alt="Turkey Breast" />
-            </li>
+        /* --- Main Content Wrapper Styling --- */
+        #main-content-wrapper {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            box-sizing: border-box;
+            /* Added min-width to prevent poem container from wrapping too much */
+            min-width: 320px; /* Adjust if your poem lines get very long */
+        }
 
-            <li>
-              <h2>Eggs</h2>
-              <p class="description">
-                Eggs are incredibly nutrient-dense, providing all nine essential
-                amino acids (the building blocks of protein). Plus, they're
-                quick to cook – scrambled, boiled, fried, omelets... you name
-                it. Great for any meal, not just breakfast!
-                <br /><strong
-                  >&bull; A small egg (40g) contains 4.9g of protein.</strong
-                ><br />
-                <strong
-                  >&bull; A medium egg (50g) contains 6.3g of protein.</strong
-                ><br />
-                <strong
-                  >&bull; A large egg (60g) contains 7.5g of protein.</strong
-                >
-              </p>
-              <img src="28b186145a6f76c0419653167f30b93f.jpg" alt="Eggs" />
-            </li>
+        /* --- Poem Container Styling --- */
+        #poem-container {
+            font-size: 2.5em;
+            text-align: center;
+            white-space: nowrap;
+            line-height: 1.4;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
+            padding: 20px;
+        }
 
-            <li>
-              <h2>Greek Yogurt</h2>
-              <p class="description">
-                If you haven't tried Greek yogurt, you're missing out. It's a
-                strained yogurt, which makes it much thicker and gives it way
-                more protein than regular yogurt. It's fantastic with some
-                berries and a drizzle of honey.
-                <br /><strong
-                  >&bull; 100g of Plain Greek Yogurt contains 9.7g of
-                  protein.</strong
-                >
-              </p>
-              <img src="yogurt-plain_annotated-7690a4563ecb4a34a26cdad746bd1691.jpg" alt="Greek Yogurt" />
-            </li>
+        .poem-line {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: block;
+            margin-bottom: 20px;
+        }
 
-            <li>
-              <h2>Fish (Salmon, Tuna)</h2>
-              <p class="description">
-                Let's divide Fish into two categories:<br />
-                Salmon is not only delicious but also packed with omega-3 fatty
-                acids, which are great for heart health. Tuna is another
-                fantastic option, especially if you're looking for something
-                quick and easy. Both are rich in protein and can be grilled,
-                baked, or even eaten raw in sushi.
-                <br /><strong
-                  >&bull; 100g of Salmon contains 20g of protein.</strong
-                >
-              </p>
-              <img src="salmon_annotated-3537c17f8adc4e129642456674dd6962.jpg" alt="Salmon" />
-              <p class="description">
-                <br /><strong
-                  >&bull; 100g of Tuna contains 28g of protein.</strong
-                >
-              </p>
-              <img src="tuna_annotated1-c1a8a08c5be445ef9329d33e5315f84f.jpg" alt="Tuna" />
-            </li>
+        .poem-line.visible {
+            opacity: 1;
+        }
 
-            <li>
-              <h2>Legumes (Lentils, Chickpeas etc.)</h2>
-              <p class="description">
-                Legumes are fantastic sources of plant-based protein, and many
-                are also packed with fiber, vitamins, and minerals. Here are 7
-                high-protein legumes (cooked, per 100g).<br />
-                <br /><strong
-                  >&bull; Soybeans (Edamame):</strong
-                >
-                Cooked edamame (immature soybeans) are generally among the
-                highest in protein for legumes.
-                <br /><strong>Protein per 100g (cooked): ~11-12 grams.</strong>
-              </p>
-              <img src="700-premium-quality-soyabean-700gm-1-soya-bean-hotkar-original-imagfn6dkuzteajw.webp" alt="Soybeans" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Lentils:</strong
-                >
-                Various types of lentils (brown, green, red) offer substantial
-                protein.
-                <br /><strong>Protein per 100g (cooked): ~9 grams.</strong>
-              </p>
-              <img src="lentils_annotated-b116abe50c85402d8c7fa74e1212b7d7.jpg" alt="Lentils" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Sunflower Seed</strong
-                >
-                Sunflower seeds are a great source of protein and healthy fats.
-                they are loaded with vitamin E,Vitamib b6 and etc.
-                <br /><strong>Protein per 100g: ~21 grams.</strong><br />
+        /* --- Audio Player Styling --- */
+        #lullaby-song-player {
+            width: 80%;
+            max-width: 400px;
+            margin-top: 30px;
+            filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(200deg) brightness(1.2);
+        }
 
-                <br /><strong
-                  >&bull; Black Beans:</strong
-                >
-                A staple in many cuisines, black beans are a great source of
-                protein and fiber.
-                <br /><strong>Protein per 100g (cooked): ~9 grams.</strong>
-              </p>
-              <img src="black-beans_annotated4-84a78ea6e7f642bca3cce647d41831c3.jpg" alt="Black Beans" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Kidney Beans:</strong
-                >
-                These robust beans are not only high in protein but also rich
-                in iron and folate.
-                <br /><strong>Protein per 100g (cooked): ~8.7-9 grams.</strong>
-              </p>
-              <img src="Red-Kidney-Beans-1024x1024.png" alt="Kidney Beans" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Chickpeas (Garbanzo Beans):</strong
-                >
-                Versatile and popular, chickpeas are a good protein option for
-                a wide range of dishes.
-                <br /><strong>Protein per 100g (cooked): ~8-9 grams.</strong>
-              </p>
-              <img src="chickpeas_annotated-e871201a08fd469084b9606a6a2cbb97.jpg" alt="Chickpeas" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Lima Beans:</strong
-                >
-                While not always as high as some others, cooked lima beans
-                still offer a good amount of protein.
-                <br /><strong>Protein per 100g (cooked): ~6-7 grams.</strong>
-              </p>
-              <img src="lima-bean_annotated-71274586e7334057b8aa4984c46ca354.jpg" alt="Lima Beans" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Green Peas:</strong
-                >
-                Often considered a vegetable, green peas are botanically
-                legumes and provide a decent protein punch for their size.
-                <br /><strong>Protein per 100g (cooked): ~5-6 grams.</strong>
-              </p>
-              <img src="green-bean-nutrion.webp" alt="Green Peas" />
-            </li>
+        /* --- Final Image Styling (MODIFIED) --- */
+        #final-image {
+            opacity: 0; /* Initially hidden */
+            transition: opacity 2s ease-in-out; /* Smooth fade in */
+            max-width: 90%; /* Responsive image size */
+            max-height: 90vh; /* Allow it to take up more vertical space */
+            object-fit: contain; /* Ensure image fits without cropping */
 
-            <li>
-              <h2>Nuts and Seeds (Almonds, Chia Seeds)</h2>
-              <p class="description">
-                Nuts and seeds are concentrated sources of plant-based protein,
-                healthy fats (omega-3s and omega-6s), fiber, vitamins, and
-                minerals. They're great for snacks, adding to meals, or using
-                in baking. Let's show some examples of nuts and seeds:
-                <br /><strong
-                  >&bull; Almonds:</strong
-                >
-                A popular nut, almonds offer a good amount of protein (around
-                6g per 28g serving) along with vitamin E, magnesium, and healthy
-                monounsaturated fats.
-                <br /><strong
-                  >100 grams of almonds typically contain about 21 to 22 grams
-                  of protein.</strong
-                >
-              </p>
-              <img src="almonds-1633bd009c87437bbc889cd07b0dc188.jpg" alt="Almonds" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Chia Seeds:</strong
-                >
-                These tiny seeds are nutritional powerhouses, often used in
-                smoothies or overnight oats. They absorb liquid and form a
-                gel-like consistency. They're a complete protein and an
-                excellent source of omega-3s, fiber, and various minerals.
-                <br /><strong
-                  >Per 100g of chia seeds contains approximately 17g of
-                  protein.</strong
-                >
-              </p>
-              <img src="chia-seeds_annotated-2f7ca595a9bd4342a8f70623be8d9985.jpg" alt="Chia Seeds" />
-            </li>
+            /* --- ABSOLUTE CENTERING --- */
+            position: fixed; /* Position relative to the viewport */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Adjusts for the image's own size */
+            z-index: 50; /* Needs to be above main content (z-index: 1) but below overlay (z-index: 100) */
+            pointer-events: none; /* Make it unclickable initially */
 
-            <li>
-              <h2>Quinoa</h2>
-              <p class="description">
-                Often considered a grain, quinoa is actually a seed that's
-                unique among plant foods because it's a complete protein,
-                meaning it contains all nine essential amino acids your body
-                can't produce on its own.
-                <br /><strong
-                  >&bull; Cooked Quinoa (per 100g):</strong
-                >
-                You can expect approximately 4.4 to 5.8 grams of protein. The
-                most commonly cited figure is around 4.4 grams.<br />
-                <br /><strong
-                  >&bull; Raw/Uncooked Quinoa (per 100g):</strong
-                >
-                Raw quinoa has a significantly higher protein content, typically
-                ranging from 13 to 15 grams of protein. Keep in mind that you
-                wouldn't consume it raw; it expands considerably when cooked.
-              </p>
-              <img src="Quinoa.jpg" alt="Quinoa" />
-            </li>
+            /* Removed margin-top and margin-bottom as they conflict with fixed positioning */
+        }
 
-            <li>
-              <h2>Cottage Cheese</h2>
-              <p class="description">
-                Cottage cheese is a dairy product that's high in protein and
-                low in fat. It's a great option for a snack or as part of a
-                meal. Cottage Cheese is one of my favorites!
-                <br /><strong
-                  >&bull; Protein per 100g (low-fat):</strong
-                >
-                Approximately 11-12 grams.<br />
-                <br /><strong
-                  >&bull; Protein Per 100g (medium fat e.g. 2% milkfat):</strong
-                >
-                Typically contains about 11-13 grams of protein.
-                <br /><strong>The fat content would be around 2-4 grams per 100g.</strong><br />
-                <br /><strong
-                  >&bull; Protein per 100g (High fat e.g. 4% milkfat or creamed):</strong
-                >
-                Typically contains about 13-15 grams of protein.
-                <br /><strong
-                  >The fat content would be higher, usually around 4-5 grams
-                  per 100g.</strong
-                >
-              </p>
-              <img src="nutrition-facts-cottage-cheese.webp" alt="Cottage Cheese" />
-            </li>
+        #final-image.visible {
+            opacity: 1;
+            pointer-events: auto; /* Make it clickable when visible */
+        }
 
-            <li>
-              <h2>Tofu and Tempeh</h2>
-              <p class="description">
-                Tofu and tempeh are both excellent plant-based protein sources
-                derived from soybeans, but they differ significantly in their
-                production texture, flavor, and nutritional profiles,
-                particularly in protein content per 100g.
-              </p>
-              <p class="description">
-                Tempeh, a fermented soybean product, has a firmer texture and a
-                nutty, earthy flavor. The fermentation process makes its
-                nutrients, including protein, more digestible. It's a versatile
-                ingredient for vegan and vegetarian dishes, often used in
-                stir-fries, sandwiches, or as a meat substitute.
-                <br /><strong
-                  >&bull; Tempeh (per 100g):</strong
-                >
-                Typically contains around 19-20 grams of protein.
-              </p>
-              <img src="tempeh_annotated2-343c660c47eb41df916d0b0e93f61426.jpg" alt="Tempeh" />
-              <p class="description">
-                There are 4 Types of tofus:<br />
-                <br />&bull; <strong>Silken tofu</strong><br />
-                &nbsp;&nbsp;&nbsp;~4-6 grams per 100g.<br />
-                <br />&bull; <strong>Soft tofu</strong><br />
-                &nbsp;&nbsp;&nbsp;~5-8 grams per 100g.<br />
-                <br />&bull; <strong>Firm tofu</strong><br />
-                &nbsp;&nbsp;&nbsp;~10-12 grams per 100g.<br />
-                <br />&bull; <strong>Extra-firm tofu</strong><br />
-                &nbsp;&nbsp;&nbsp;~12-15 grams per 100g.
-              </p>
-              <img src="tempeh-vs-tofu.webp" alt="Tofu and Tempeh" />
-            </li>
-            <li>
-              <h2>Protein Supplements (Whey, Casein, Plant-based)</h2>
-              <p class="description">
-                Protein supplements are a convenient way to boost your protein
-                intake, especially if you're struggling to get enough from whole
-                foods. They come in various forms, including whey, casein, and
-                plant-based options.
-                <br /><strong
-                  >&bull; Whey Protein:</strong
-                >
-                Derived from milk, whey protein is quickly absorbed and is great
-                for post-workout recovery.
-                <br /><strong>Per scoop (30g) typically contains 20-25g of protein.</strong>
-              </p>
-              <img src="whey-protein_annotated-3f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Whey Protein" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Casein Protein:</strong
-                >
-                Also derived from milk, casein is digested more slowly, making it
-                ideal for nighttime use.
-                <br /><strong>Per scoop (30g) typically contains 20-25g of protein.</strong>
-              </p>
-              <img src="casein-protein_annotated-4f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Casein Protein" />
-              <p class="description">
-                <br /><strong
-                  >&bull; Plant-based Protein:</strong
-                >
-                Made from sources like peas, rice, or hemp, these are great for
-                vegans and those with lactose intolerance.
-                <br /><strong>Per scoop (30g) typically contains 15-25g of protein.</strong>
-              </p>
-              <img src="plant-based-protein_annotated-5f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Plant-based Protein" />
-            </li>
-              <p class="description">
-                <br /><strong
-                  >&bull;
-                   Protein Bars:</strong
-                >
-                These are convenient snacks that can provide
-                 a quick protein boost. They come in various
-                  flavors and and they also have different protein sources and nutrition size.
-                <br /><strong>Per bar (60g) typically contains 15-25g of protein.</strong> 
-              </p>
-            </li>
-          </ul>
-        </section>
-      </main>
+        /* --- Optional: Responsive for Mobile (Replace video with image) --- */
+        @media (max-width: 768px) {
+            #background-video {
+                display: none;
+            }
+            body {
+                background: url('path/to/your/mobile-fallback-image.jpg') no-repeat center center fixed;
+                background-size: cover;
+            }
+            #poem-container {
+                font-size: 1.8em;
+                background-color: rgba(0, 0, 0, 0.6);
+                border-radius: 10px;
+                padding: 15px;
+            }
+            #final-image {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
 
-      <aside class="sidebar">
-        <h2>Related Info</h2>
-        <p>Check out these links:</p>
-        <ul>
-          <li><a href="#">Workout Plans</a></li>
-          <li><a href="#">Healthy Recipes</a></li>
-          <li><a href="#">Supplements Guide</a></li>
-        </ul>
-        <h3>Gym Locations</h3>
-        <p>Find a gym near you!</p>
-        <button>Find Now</button>
-      </aside>
+    <div id="overlay">
+        <h1>Click to Enter Mari</h1>
+        <p>(Tap anywhere to start the suprise,Love.)</p>
     </div>
-  </body>
+
+    <video autoplay muted loop playsinline id="background-video" poster="path/to/your/video-poster.jpg">
+        <source src="mylivewallpapers.com-Makoto-Yuki-Persona-3.mp4" type="video/mp4">
+        <source src="mylivewallpapers.com-Makoto-Yuki-Persona-3.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+
+    <img id="final-image" src="10d18988d0c2b64b4f27c03b96310d12.jpg">
+
+    <div id="main-content-wrapper">
+        <div id="poem-container">
+            <span class="poem-line">Within the inner heart I plead</span>
+            <span class="poem-line">For you to talk to me</span>
+            <span class="poem-line">I want to hear all the good and bad</span>
+            <span class="poem-line">The new stories you have</span>
+            <span class="poem-line">As I drift across the sky</span>
+            <span class="poem-line">The hour hand turns high</span>
+            <span class="poem-line">So goodnight</span>
+            <span class="poem-line">Let me sing a lullaby, love</span>
+            <span class="poem-line">I'll be seeing you, baby</span>
+            <span class="poem-line">Sorry for doing that mistake my love, I promise not to again.</span>
+            <span class="poem-line">I will learn from my mistakes.</span>
+            <span class="poem-line">I Love You.</span>
+        </div>
+
+        <audio id="lullaby-song-player" controls>
+            <source src="special.mp4" type="video/mp4">
+            Your browser does not support the audio element.
+        </audio>
+    </div> <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lines = document.querySelectorAll('.poem-line');
+            const song = document.getElementById('lullaby-song-player');
+            const video = document.getElementById('background-video');
+            const overlay = document.getElementById('overlay');
+            const finalImage = document.getElementById('final-image');
+            let index = 0;
+
+            const lineTimings = [
+                { displayDuration: 1600, delayBeforeNextLine: 1000 }, // "Within the inner heart I plead"
+                { displayDuration: 1500, delayBeforeNextLine: 1000 }, // "For you to talk to me"
+                { displayDuration: 1500, delayBeforeNextLine: 1200 }, // "I want to hear all the good and bad"
+                { displayDuration: 1500, delayBeforeNextLine: 1500 }, // "The new stories you have"
+                { displayDuration: 1200, delayBeforeNextLine: 1000 }, // "As I drift across the sky"
+                { displayDuration: 1300, delayBeforeNextLine: 1000 }, // "The hour hand turns high"
+                { displayDuration: 700,  delayBeforeNextLine: 800 },  // "So goodnight"
+                { displayDuration: 4800, delayBeforeNextLine: 1200 }, // "Let me sing a lullaby, love"
+                { displayDuration: 5000, delayBeforeNextLine: 800 },  // "I'll be seeing you, baby" (ADJUSTED DELAY for new lines)
+                // NEW LINES
+                { displayDuration: 3000, delayBeforeNextLine: 1500 }, // "Sorry for doing that mistake my love, I promise not to again"
+                { displayDuration: 2500, delayBeforeNextLine: 1000 }, // "I will learn from my mistakes"
+                { displayDuration: 2000, delayBeforeNextLine: 0 }    // "I Love You" (No delay after this, as image comes next)
+            ];
+
+            // Function to start the poem animation
+            function animatePoem() {
+                if (index < lines.length) {
+                    const currentLine = lines[index];
+                    const timings = lineTimings[index];
+
+                    currentLine.classList.add('visible');
+
+                    setTimeout(() => {
+                        currentLine.classList.remove('visible');
+                        index++;
+                        if (index < lines.length) {
+                            setTimeout(animatePoem, timings.delayBeforeNextLine);
+                        } else {
+                            // All poem lines are done, now show the image
+                            // Also hide the poem container once text fades
+                            const poemContainer = document.getElementById('poem-container');
+                            if (poemContainer) {
+                                poemContainer.style.opacity = 0; // Fade out poem container
+                                poemContainer.style.transition = 'opacity 1s ease-out';
+                                poemContainer.style.pointerEvents = 'none'; // Make it unclickable
+                            }
+
+                            setTimeout(() => {
+                                if (finalImage) {
+                                    finalImage.classList.add('visible');
+                                    // Optionally, you might want to pause/stop the video/audio here
+                                    // video.pause();
+                                    // song.pause();
+                                }
+                            }, 2000); // Delay before image appears after the last text fades out
+                        }
+                    }, timings.displayDuration);
+                }
+            }
+
+            // Function to start both video and song (triggered by user click)
+            const startMediaAndExperience = () => {
+                video.play().catch(error => {
+                    console.warn("Video play prevented:", error);
+                });
+
+                song.play().catch(error => {
+                    console.warn("Audio play prevented:", error);
+                });
+
+                animatePoem();
+                overlay.classList.add('hidden');
+            };
+
+            overlay.addEventListener('click', startMediaAndExperience);
+        });
+    </script>
+
+</body>
 </html>
