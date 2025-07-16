@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Mari </title>
+    <title>Immersive Persona 3 Reload Page</title>
     <style>
         body {
             margin: 0;
@@ -15,6 +15,10 @@
             min-height: 100vh; /* Ensure body is at least full height */
             overflow-y: auto; /* Enable vertical scrolling for the body */
             background-color: #000; /* Fallback background color if video fails */
+            display: flex; /* Use flexbox for body to center content vertically on desktop */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         /* --- Overlay Styling --- */
@@ -24,7 +28,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -32,19 +36,25 @@
             color: white;
             font-size: 2em;
             cursor: pointer;
-            z-index: 100;
+            z-index: 100; /* Ensure it's on top of everything */
             opacity: 1;
-            transition: opacity 1s ease-out;
+            transition: opacity 1s ease-out; /* Smooth fade out */
+            padding: 20px; /* Add padding to prevent text from touching edges on small screens */
+            box-sizing: border-box; /* Include padding in width/height */
         }
 
         #overlay.hidden {
             opacity: 0;
-            pointer-events: none;
+            pointer-events: none; /* Make it unclickable after fading */
+        }
+
+        #overlay h1 {
+            font-size: 1.5em; /* Smaller on mobile overlay */
         }
 
         #overlay p {
-            margin-top: 20px;
-            font-size: 0.6em;
+            margin-top: 10px; /* Reduced margin */
+            font-size: 0.8em; /* Adjusted size */
             opacity: 0.8;
         }
 
@@ -72,20 +82,22 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px 0;
+            padding: 20px 15px; /* Adjust horizontal padding for content */
             box-sizing: border-box;
-            /* Added min-width to prevent poem container from wrapping too much */
-            min-width: 320px; /* Adjust if your poem lines get very long */
+            text-align: center; /* Ensure content inside is centered */
         }
 
         /* --- Poem Container Styling --- */
         #poem-container {
             font-size: 2.5em;
             text-align: center;
-            white-space: nowrap;
+            white-space: normal; /* ALLOW lines to wrap on smaller screens */
             line-height: 1.4;
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
             padding: 20px;
+            max-width: 90%; /* Constrain width to prevent lines from being too long */
+            margin: 0 auto; /* Center the container */
+            box-sizing: border-box; /* Include padding in width */
         }
 
         .poem-line {
@@ -93,6 +105,8 @@
             transition: opacity 0.8s ease-in-out;
             display: block;
             margin-bottom: 20px;
+            overflow-wrap: break-word; /* Ensure long words break */
+            word-break: break-word; /* Ensure long words break */
         }
 
         .poem-line.visible {
@@ -101,53 +115,102 @@
 
         /* --- Audio Player Styling --- */
         #lullaby-song-player {
-            width: 80%;
+            width: 90%; /* Make it wider on mobile */
             max-width: 400px;
             margin-top: 30px;
             filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(200deg) brightness(1.2);
         }
 
-        /* --- Final Image Styling (MODIFIED) --- */
+        /* --- Final Image Styling --- */
         #final-image {
-            opacity: 0; /* Initially hidden */
-            transition: opacity 2s ease-in-out; /* Smooth fade in */
-            max-width: 90%; /* Responsive image size */
-            max-height: 90vh; /* Allow it to take up more vertical space */
-            object-fit: contain; /* Ensure image fits without cropping */
-
-            /* --- ABSOLUTE CENTERING --- */
-            position: fixed; /* Position relative to the viewport */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Adjusts for the image's own size */
-            z-index: 50; /* Needs to be above main content (z-index: 1) but below overlay (z-index: 100) */
-            pointer-events: none; /* Make it unclickable initially */
-
-            /* Removed margin-top and margin-bottom as they conflict with fixed positioning */
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            max-width: 95%; /* Make it slightly larger on mobile */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 80vh;
+            object-fit: contain;
+            margin-top: 50px;
+            pointer-events: none;
+            margin-bottom: 50px;
         }
 
         #final-image.visible {
             opacity: 1;
-            pointer-events: auto; /* Make it clickable when visible */
+            pointer-events: auto;
         }
 
-        /* --- Optional: Responsive for Mobile (Replace video with image) --- */
+        /* --- Responsive for Mobile (max-width: 768px) --- */
         @media (max-width: 768px) {
-            #background-video {
-                display: none;
-            }
             body {
-                background: url('path/to/your/mobile-fallback-image.jpg') no-repeat center center fixed;
+                justify-content: flex-start; /* Align content to start on mobile, allowing natural scroll */
+                padding-top: 50px; /* Add some space at the top */
+                padding-bottom: 50px; /* Add some space at the bottom */
+            }
+
+            #background-video {
+                display: none; /* Hide the video on smaller screens */
+            }
+
+            body {
+                /* Replace 'path/to/your/mobile-fallback-image.jpg' with your actual image path */
+                background: url('path/to/your/mobile-fallback-image.jpg') no-repeat center center fixed; /* Use a static image */
                 background-size: cover;
+                /* Add a semi-transparent overlay to the background image for better text readability */
+                background-blend-mode: multiply;
+                background-color: rgba(0, 0, 0, 0.4); /* Darker overlay for readability */
             }
+
+            #overlay h1 {
+                font-size: 1.5em; /* Smaller font for "Click to Enter" */
+            }
+
+            #overlay p {
+                font-size: 0.8em; /* Smaller font for instructions */
+            }
+
             #poem-container {
-                font-size: 1.8em;
-                background-color: rgba(0, 0, 0, 0.6);
+                font-size: 1.5em; /* Significantly adjust font size for smaller screens */
+                padding: 15px; /* Adjust padding */
+                background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background for text readability */
                 border-radius: 10px;
-                padding: 15px;
+                width: calc(100% - 40px); /* Account for padding */
+                margin-left: 20px; /* Center with margin */
+                margin-right: 20px; /* Center with margin */
             }
+
+            .poem-line {
+                margin-bottom: 15px; /* Reduce space between lines on mobile */
+            }
+
+            #lullaby-song-player {
+                width: 95%; /* Almost full width on mobile */
+                margin-top: 25px; /* Adjust spacing */
+            }
+
             #final-image {
-                max-width: 95%;
+                max-width: 90%; /* Adjust for smaller screens */
+                margin-top: 40px; /* Adjust spacing */
+                margin-bottom: 40px; /* Adjust spacing */
+            }
+        }
+
+        /* Additional Media Query for very small phones (e.g., iPhone SE) */
+        @media (max-width: 480px) {
+            #overlay h1 {
+                font-size: 1.2em;
+            }
+
+            #overlay p {
+                font-size: 0.7em;
+            }
+
+            #poem-container {
+                font-size: 1.2em; /* Even smaller font size for very small screens */
+                padding: 10px;
+            }
+
+            .poem-line {
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -155,8 +218,8 @@
 <body>
 
     <div id="overlay">
-        <h1>Click to Enter Mari</h1>
-        <p>(Tap anywhere to start the suprise,Love.)</p>
+        <h1>Click to Enter</h1>
+        <p>(Tap anywhere to start the experience)</p>
     </div>
 
     <video autoplay muted loop playsinline id="background-video" poster="path/to/your/video-poster.jpg">
@@ -164,8 +227,6 @@
         <source src="mylivewallpapers.com-Makoto-Yuki-Persona-3.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>
-
-    <img id="final-image" src="10d18988d0c2b64b4f27c03b96310d12.jpg">
 
     <div id="main-content-wrapper">
         <div id="poem-container">
@@ -183,11 +244,14 @@
             <span class="poem-line">I Love You.</span>
         </div>
 
+        <img id="final-image" src="path/to/your/final-image.jpg" alt="A special image for you">
+
         <audio id="lullaby-song-player" controls>
             <source src="special.mp4" type="video/mp4">
             Your browser does not support the audio element.
         </audio>
-    </div> <script>
+    </div>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const lines = document.querySelectorAll('.poem-line');
             const song = document.getElementById('lullaby-song-player');
@@ -202,7 +266,7 @@
                 { displayDuration: 1500, delayBeforeNextLine: 1200 }, // "I want to hear all the good and bad"
                 { displayDuration: 1500, delayBeforeNextLine: 1500 }, // "The new stories you have"
                 { displayDuration: 1200, delayBeforeNextLine: 1000 }, // "As I drift across the sky"
-                { displayDuration: 1300, delayBeforeNextLine: 1000 }, // "The hour hand turns high"
+                { displayDuration: 1300, delayBeforeNextLine: 1500 }, // "The hour hand turns high"
                 { displayDuration: 700,  delayBeforeNextLine: 800 },  // "So goodnight"
                 { displayDuration: 4800, delayBeforeNextLine: 1200 }, // "Let me sing a lullaby, love"
                 { displayDuration: 5000, delayBeforeNextLine: 800 },  // "I'll be seeing you, baby" (ADJUSTED DELAY for new lines)
@@ -227,14 +291,6 @@
                             setTimeout(animatePoem, timings.delayBeforeNextLine);
                         } else {
                             // All poem lines are done, now show the image
-                            // Also hide the poem container once text fades
-                            const poemContainer = document.getElementById('poem-container');
-                            if (poemContainer) {
-                                poemContainer.style.opacity = 0; // Fade out poem container
-                                poemContainer.style.transition = 'opacity 1s ease-out';
-                                poemContainer.style.pointerEvents = 'none'; // Make it unclickable
-                            }
-
                             setTimeout(() => {
                                 if (finalImage) {
                                     finalImage.classList.add('visible');
