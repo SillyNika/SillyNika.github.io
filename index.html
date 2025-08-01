@@ -1,326 +1,983 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immersive Persona 3 Reload Page</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #e0e0e0; /* Lighter text for dark background/video */
-            text-align: center;
-            position: relative;
-            min-height: 100vh; /* Ensure body is at least full height */
-            overflow-y: auto; /* Enable vertical scrolling for the body */
-            background-color: #000; /* Fallback background color if video fails */
-            display: flex; /* Use flexbox for body to center content vertically on desktop */
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+  <head>
+    <link rel="stylesheet" href="2.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Good Protein Sources</title>
+  </head>
 
-        /* --- Overlay Styling --- */
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 2em;
-            cursor: pointer;
-            z-index: 100; /* Ensure it's on top of everything */
-            opacity: 1;
-            transition: opacity 1s ease-out; /* Smooth fade out */
-            padding: 20px; /* Add padding to prevent text from touching edges on small screens */
-            box-sizing: border-box; /* Include padding in width/height */
-        }
+  <body>
+    <nav class="main-nav">
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="float-right"><a href="#about">About</a></li>
+      </ul>
+    </nav>
 
-        #overlay.hidden {
-            opacity: 0;
-            pointer-events: none; /* Make it unclickable after fading */
-        }
+    <div class="content-wrapper">
+      <main class="main-content">
+        <h1>Good Protein Sources</h1>
 
-        #overlay h1 {
-            font-size: 1.5em; /* Smaller on mobile overlay */
-        }
+        <p>
+          Recently started going to the gym? Great! But just going to the gym
+          won't give you gains. You need a lot of protein for your body to
+          actually grow.
+          <strong
+            >You need about 1.2 to 1.7 grams of protein per kilogram of body
+            weight per day to make progress.</strong
+          >
+          So, here are some food recommendations rich in protein.
+        </p>
 
-        #overlay p {
-            margin-top: 10px; /* Reduced margin */
-            font-size: 0.8em; /* Adjusted size */
-            opacity: 0.8;
-        }
+        <section class="food-list">
+          <ul>
+            <li>
+              <h2>Lean Beef</h2>
+              <p class="description">
+                Lean beef is a fantastic source of protein, iron, and B vitamins.
+                It's great for muscle growth and repair.sometimes lean beef  provides b12 vitamin
+                 over 100% of the Daily Value (DV) per 100g, not only that, it also provides huge amounts of 
+                 zinc (often provides over 50% of the DV).
+                <br /><strong
+                  >&bull; Per 100g of Lean Beef contains 26g of protein.</strong
+                ><br />
+                <strong
+                  >&bull; A 3-ounce (85g) serving of cooked lean beef contains
+                  about 22-25g of protein.</strong
+                >
+              </p>
+              <img src="lean-beef_annotated-1f8b8c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Lean Beef" />
+            </li>
+              <li>
+                <h2>Pork Tenderloin</h2>
+                <p class="description">
+                  Pork tenderloin is a lean 
+                  cut of pork that's low in fat and
+                  high in protein. It's a 
+                  great alternative to beef if you're
+                  looking for something different. 
+                  It's also very tender and
+                  cooks quickly, not only that it contains 
+                  Lots of vitamin b1, vitamin b3(niacin), 
+                  vitamin b6, Zinc and etc.
+                  <br /><strong
+                    >&bull; Per 100g of Pork Tenderloin contains 26g of
+                    protein.</strong
+                  ><br />
+                  <strong
+                    >&bull; A 3-ounce (85g) serving of cooked pork tenderloin
+                    contains about 22-24g of protein.</strong
+                  >
+              </li>
+              <li>
+              <h2>Chicken Breast</h2>
+              <p class="description">
+                This is a classic for a reason! Chicken breast is lean, meaning
+                it's packed with protein without a lot of extra fat. It's also
+                super versatile – you can grill it, bake it, shred it for
+                tacos, or toss it in a salad. It's like a blank canvas for
+                flavor.
+                <br /><strong
+                  >&bull; Per 100g of Chicken Breast contains 31g of
+                  protein.</strong
+                ><br />
+                <strong
+                  >&bull; A skinless, cooked Chicken Breast (174g) contains 56g
+                  of Protein.</strong
+                >
+              </p>
+              <img
+                src="https://www.verywellfit.com/thmb/plVw2u4gZVKVhsa70Cj-vDsgGag=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicken-breast_annotated-0898203736ef4b1a90f2fb5cb4c4b1ad.jpg"
+                alt="Chicken Breast"
+              />
+            </li>
 
-        /* --- Video Background Styling --- */
-        #background-video {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            object-fit: cover;
-            background-size: cover;
-        }
+            <li>
+              <h2>Turkey Breast</h2>
+              <p class="description">
+                Turkey breast is an excellent protein source, very similar to
+                chicken breast in its lean profile and versatility. It's often
+                chosen as a healthier alternative to red meat due to its lower
+                saturated fat content.
+                <br /><strong
+                  >&bull; Per 100g of Turkey Breast contains 29g of
+                  protein.</strong
+                ><br />
+                <strong
+                  >&bull; A skinless, cooked Turkey Breast (174g) contains
+                  approximately 50g of protein.</strong
+                >
+              </p>
+              <img src="turkey_annotated-b66cb3d317d44f35be63a0e5b1117f5b.jpg" alt="Turkey Breast" />
+            </li>
 
-        /* --- Main Content Wrapper Styling --- */
-        #main-content-wrapper {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 15px; /* Adjust horizontal padding for content */
-            box-sizing: border-box;
-            text-align: center; /* Ensure content inside is centered */
-        }
+            <li>
+              <h2>Eggs</h2>
+              <p class="description">
+                Eggs are incredibly nutrient-dense, providing all nine essential
+                amino acids (the building blocks of protein). Plus, they're
+                quick to cook – scrambled, boiled, fried, omelets... you name
+                it. Great for any meal, not just breakfast!
+                <br /><strong
+                  >&bull; A small egg (40g) contains 4.9g of protein.</strong
+                ><br />
+                <strong
+                  >&bull; A medium egg (50g) contains 6.3g of protein.</strong
+                ><br />
+                <strong
+                  >&bull; A large egg (60g) contains 7.5g of protein.</strong
+                >
+              </p>
+              <img src="28b186145a6f76c0419653167f30b93f.jpg" alt="Eggs" />
+            </li>
 
-        /* --- Poem Container Styling --- */
-        #poem-container {
-            font-size: 2.5em;
-            text-align: center;
-            white-space: normal; /* ALLOW lines to wrap on smaller screens */
-            line-height: 1.4;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            max-width: 90%; /* Constrain width to prevent lines from being too long */
-            margin: 0 auto; /* Center the container */
-            box-sizing: border-box; /* Include padding in width */
-        }
+            <li>
+              <h2>Greek Yogurt</h2>
+              <p class="description">
+                If you haven't tried Greek yogurt, you're missing out. It's a
+                strained yogurt, which makes it much thicker and gives it way
+                more protein than regular yogurt. It's fantastic with some
+                berries and a drizzle of honey.
+                <br /><strong
+                  >&bull; 100g of Plain Greek Yogurt contains 9.7g of
+                  protein.</strong
+                >
+              </p>
+              <img src="yogurt-plain_annotated-7690a4563ecb4a34a26cdad746bd1691.jpg" alt="Greek Yogurt" />
+            </li>
 
-        .poem-line {
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            display: block;
-            margin-bottom: 20px;
-            overflow-wrap: break-word; /* Ensure long words break */
-            word-break: break-word; /* Ensure long words break */
-        }
+            <li>
+              <h2>Buckwheat</h2>
+              <p class="description">
+                Buckwheat is a gluten-free grain-like seed that's high in
+                protein and fiber. It's a great alternative to rice or pasta and
+                can be used in salads, porridge, or even pancakes.
+                <br /><strong
+                  >&bull; Per 100g of Cooked Buckwheat contains 3.4g of
+                  protein.</strong
+                ><br />
+                <strong
+                  >&bull; Per 100g of Raw Buckwheat contains 13.3g of
+                  protein.</strong
+                >
+            </li>
+          
+            <li>
+              <h2>Milk</h2>
+              <p class="description">
+                Milk is a great source of protein, calcium, and other essential
+                nutrients. It's perfect for smoothies, cereal, or just a glass
+                on its own. If you're lactose intolerant, there are lactose-free
+                options available.
+                <br /><strong
+                  >&bull; Per 100g of Whole Milk contains 3.4g of
+                  protein.</strong
+                ><br />
+                <strong
+                  >&bull; Per 100g of Skim Milk contains 3.4g of
+                  protein.</strong
+                >
+              </p>
+            </li>
+            
 
-        .poem-line.visible {
-            opacity: 1;
-        }
+            <li>
+              <h2>Fish (Salmon, Tuna)</h2>
+              <p class="description">
+                Let's divide Fish into two categories:<br />
+                Salmon is not only delicious but also packed with omega-3 fatty
+                acids, which are great for heart health. Tuna is another
+                fantastic option, especially if you're looking for something
+                quick and easy. Both are rich in protein and can be grilled,
+                baked, or even eaten raw in sushi.
+                <br /><strong
+                  >&bull; 100g of Salmon contains 20g of protein.</strong
+                >
+              </p>
+              <img src="salmon_annotated-3537c17f8adc4e129642456674dd6962.jpg" alt="Salmon" />
+              <p class="description">
+                <br /><strong
+                  >&bull; 100g of Tuna contains 28g of protein.</strong
+                >
+              </p>
+              <img src="tuna_annotated1-c1a8a08c5be445ef9329d33e5315f84f.jpg" alt="Tuna" />
+            </li>
 
-        /* --- Audio Player Styling --- */
-        #lullaby-song-player {
-            width: 90%; /* Make it wider on mobile */
-            max-width: 400px;
-            margin-top: 30px;
-            filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(200deg) brightness(1.2);
-        }
+            <li>
+              <h2>Legumes (Lentils, Chickpeas etc.)</h2>
+              <p class="description">
+                Legumes are fantastic sources of plant-based protein, and many
+                are also packed with fiber, vitamins, and minerals. Here are 7
+                high-protein legumes (cooked, per 100g).<br />
+                <br /><strong
+                  >&bull; Soybeans (Edamame):</strong
+                >
+                Cooked edamame (immature soybeans) are generally among the
+                highest in protein for legumes.
+                <br /><strong>Protein per 100g (cooked): ~11-12 grams.</strong>
+              </p>
+              <img src="700-premium-quality-soyabean-700gm-1-soya-bean-hotkar-original-imagfn6dkuzteajw.webp" alt="Soybeans" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Lentils:</strong
+                >
+                Various types of lentils (brown, green, red) offer substantial
+                protein.
+                <br /><strong>Protein per 100g (cooked): ~9 grams.</strong>
+              </p>
+              <img src="lentils_annotated-b116abe50c85402d8c7fa74e1212b7d7.jpg" alt="Lentils" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Black Beans:</strong
+                >
+                A staple in many cuisines, black beans are a great source of
+                protein and fiber.
+                <br /><strong>Protein per 100g (cooked): ~9 grams.</strong>
+              </p>
+              <img src="black-beans_annotated4-84a78ea6e7f642bca3cce647d41831c3.jpg" alt="Black Beans" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Kidney Beans:</strong
+                >
+                These robust beans are not only high in protein but also rich
+                in iron and folate.
+                <br /><strong>Protein per 100g (cooked): ~8.7-9 grams.</strong>
+              </p>
+              <img src="Red-Kidney-Beans-1024x1024.png" alt="Kidney Beans" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Chickpeas (Garbanzo Beans):</strong
+                >
+                Versatile and popular, chickpeas are a good protein option for
+                a wide range of dishes.
+                <br /><strong>Protein per 100g (cooked): ~8-9 grams.</strong>
+              </p>
+              <img src="chickpeas_annotated-e871201a08fd469084b9606a6a2cbb97.jpg" alt="Chickpeas" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Lima Beans:</strong
+                >
+                While not always as high as some others, cooked lima beans
+                still offer a good amount of protein.
+                <br /><strong>Protein per 100g (cooked): ~6-7 grams.</strong>
+              </p>
+              <img src="lima-bean_annotated-71274586e7334057b8aa4984c46ca354.jpg" alt="Lima Beans" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Green Peas:</strong
+                >
+                Often considered a vegetable, green peas are botanically
+                legumes and provide a decent protein punch for their size.
+                <br /><strong>Protein per 100g (cooked): ~5-6 grams.</strong>
+              </p>
+              <img src="green-bean-nutrion.webp" alt="Green Peas" />
+            </li>
+            <li>
+              <h2>Sprouted Bread</h2>s
+              <p class="description>"
+                <br /><strong
+                  >&bull;  Sprouted bread</strong
+                >
+                Sprouted bread is made from whole grains 
+                that have been sprouted,But they are very rich in protein and 
+                other nutrients.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 9-10 grams of protein.
+              </p> 
+            </li>
+            <li>
+              <h2>Sachi Inchi Seeds</h2>
+              <p class="description">
+                Sacha Inchi seeds, also known as Inca peanuts, are a lesser-known
+                but highly nutritious seed.
+                 They are rich in protein, omega-3
+                fatty acids, and various vitamins and minerals. 
+                <br /><strong
+                  >&bull; Per 100g of Sacha Inchi Seeds contains 30g of
+                  protein.</strong
+                ><br />
+                <strong
+                  >&bull; A 1-ounce (28g) serving of Sacha Inchi seeds contains
+                  about 8-9g of protein.</strong
+                >
+            </li>
+            <li>
+              <h2>Seitan</h2>
+              <p class="description">
+                Seitan, also known as wheat meat or wheat gluten, is a high-protein
+                meat substitute made from gluten, the main protein in wheat. It's
+                often used in vegetarian and vegan dishes due to its chewy texture
+                that resembles meat.
+                <br /><strong
+                  >&bull; Per 100g of Seitan contains 25g of protein.</strong
+                ><br />
+                <strong
+                  >&bull; A 3-ounce (85g) serving of seitan contains about 21-24g
+                  of protein.</strong
+                >
+              </p>
+              <img src="seitan_annotated-2f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Seitan" />
+            </li>
 
-        /* --- Final Image Styling --- */
-        #final-image {
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-            max-width: 95%; /* Make it slightly larger on mobile */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 80vh;
-            object-fit: contain;
-            margin-top: 50px;
-            pointer-events: none;
-            margin-bottom: 50px;
-        }
+            <li>
+              <h2>Amaranth</h2>
+              <p class="description">
+                Amaranth is a gluten-free grain-like seed that's high in protein
+                and fiber. It's a great alternative to rice or pasta and can be
+                used in salads, porridge, or even pancakes.
+                <br /><strong
+                  >&bull; Per 100g of Cooked Amaranth contains 4.7g of
+                  protein.</strong
+                ><br />
+                <strong
+                  >&bull; Per 100g of Raw Amaranth contains 13.3g of
+                  protein.</strong
+                >
+            </li>
 
-        #final-image.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
+            <li>
+              <h2>Nuts and Seeds (Almonds, Chia Seeds)</h2>
+              <p class="description">
+                Nuts and seeds are concentrated sources of plant-based protein,
+                healthy fats (omega-3s and omega-6s), fiber, vitamins, and
+                minerals. They're great for snacks, adding to meals, or using
+                in baking. Let's show some examples of nuts and seeds:
+                <br /><strong
+                  >&bull; Almonds:</strong
+                >
+                A popular nut, almonds offer a good amount of protein (around
+                6g per 28g serving) along with vitamin E, magnesium, and healthy
+                monounsaturated fats.
+                <br /><strong
+                  >100 grams of almonds typically contain about 21 to 22 grams
+                  of protein.</strong
+                >
+              </p>
+              <img src="almonds-1633bd009c87437bbc889cd07b0dc188.jpg" alt="Almonds" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Sunflower Seeds</strong
+                >
+                Sunflower seeds are a great source of protein and healthy fats.
+                They are loaded with vitamin E, Vitamin B6, and etc.
+                <br /><strong>Protein per 100g: ~21 grams.</strong><br />
+              </p>
+              <img src="your-sunflower-seeds-image.jpg" alt="Sunflower Seeds" /> <li>
+                
+                  <h2>Pumpkin Seeds</h2>
+                  <p class="description">
+                    Pumpkin seeds are rich in protein,
+                    healthy fats, 
+                    and various minerals like magnesium zinc, and healthy fats.
+                    They are often eaten as a snack or added to salads and
+                    granola.
+                    <br /><strong
+                      >&bull; Protein per 100g:</strong
+                    >
+                    Approximately 19 grams of protein.
+                </li>
 
-        /* --- Responsive for Mobile (max-width: 768px) --- */
-        @media (max-width: 768px) {
-            body {
-                justify-content: flex-start; /* Align content to start on mobile, allowing natural scroll */
-                padding-top: 50px; /* Add some space at the top */
-                padding-bottom: 50px; /* Add some space at the bottom */
-            }
+                <li>
+                  <h2>Teff SEEDS</h2>
+                  <p class="description">
+                    Teff is a tiny grain that packs a big nutritional punch.
+                    It's rich in protein, fiber, and various vitamins and
+                    minerals. Teff is often used to make injera, a traditional
+                    Ethiopian flatbread.
+                    <br /><strong
+                      >&bull; Per 100g of Teff contains 13-14g of
+                      protein.</strong
+                    >
+                  </p>
+                </li>
+                <h2>Peanuts</h2>
+                <p class="description">
+                  Peanuts are legumes that are often grouped with nuts due to their
+                  similar taste and nutritional profile. They are a good source of
+                  protein, healthy fats, and various vitamins and minerals.
+                  <br /><strong
+                    >&bull; Protein per 100g:</strong
+                  >
+                  Approximately 25-30 grams of protein.
+                </p>
+              </li>
+              <p class="description">
+                <br /><strong
+                  >&bull; Chia Seeds:</strong
+                >
+                These tiny seeds are nutritional powerhouses, often used in
+                smoothies or overnight oats. They absorb liquid and form a
+                gel-like consistency. They're a complete protein and an
+                excellent source of omega-3s, fiber, and various minerals.
+                <br /><strong
+                  >Per 100g of chia seeds contains approximately 17g of
+                  protein.</strong
+                >
+              </p>
+              <img src="chia-seeds_annotated-2f7ca595a9bd4342a8f70623be8d9985.jpg" alt="Chia Seeds" />
+            </li>
 
-            #background-video {
-                display: none; /* Hide the video on smaller screens */
-            }
+            
+              <p class="description"><strong
+                  >&bull; Flax Seeds:</strong
+                >
+                Flax seeds are tiny but mighty!
+                 They're packed with protein,
+                omega-3 fatty acids, and fiber.
+                 You can sprinkle them on your
+                cereal, blend them into smoothies,
+                 or even use them as an egg
+                substitute in baking.
+                <br /><strong
+                  >&bull; Per 100g of Flax Seeds contains approximately 18g of
+                  protein.</strong
+                >
+            </li>
+            <p class="description"><strong
+                >&bull; Hemp Seeds:</strong
+              >
+              Hemp seeds are another excellent source of plant-based protein,
+              healthy fats, and various vitamins and minerals. They have a
+              slightly nutty flavor and can be added to smoothies, salads, or
+              yogurt.
+              <br /><strong
+                >&bull; Per 100g of Hemp Seeds contains approximately 31g of
+                protein.</strong
+              >
+            </p>
+              
 
-            body {
-                /* Replace 'path/to/your/mobile-fallback-image.jpg' with your actual image path */
-                background: url('path/to/your/mobile-fallback-image.jpg') no-repeat center center fixed; /* Use a static image */
-                background-size: cover;
-                /* Add a semi-transparent overlay to the background image for better text readability */
-                background-blend-mode: multiply;
-                background-color: rgba(0, 0, 0, 0.4); /* Darker overlay for readability */
-            }
+            <li>
+              <h2>Quinoa</h2>
+              <p class="description">
+                Often considered a grain, quinoa is actually a seed that's
+                unique among plant foods because it's a complete protein,
+                meaning it contains all nine essential amino acids your body
+                can't produce on its own.
+                <br /><strong
+                  >&bull; Cooked Quinoa (per 100g):</strong
+                >
+                You can expect approximately 4.4 to 5.8 grams of protein. The
+                most commonly cited figure is around 4.4 grams.<br />
+                <br /><strong
+                  >&bull; Raw/Uncooked Quinoa (per 100g):</strong
+                >
+                Raw quinoa has a significantly higher protein content, typically
+                ranging from 13 to 15 grams of protein. Keep in mind that you
+                wouldn't consume it raw; it expands considerably when cooked.
+              </p>
+              <img src="Quinoa.jpg" alt="Quinoa" />
+            </li>
 
-            #overlay h1 {
-                font-size: 1.5em; /* Smaller font for "Click to Enter" */
-            }
+            <li>
+              <h2>Cottage Cheese</h2>
+              <p class="description">
+                Cottage cheese is a dairy product that's high in protein and
+                low in fat. It's a great option for a snack or as part of a
+                meal. Cottage Cheese is one of my favorites!
+                <br /><strong
+                  >&bull; Protein per 100g (low-fat):</strong
+                >
+                Approximately 11-12 grams.<br />
+                <br /><strong
+                  >&bull; Protein Per 100g (medium fat e.g. 2% milkfat):</strong
+                >
+                Typically contains about 11-13 grams of protein.
+                <br /><strong>The fat content would be around 2-4 grams per 100g.</strong><br />
+                <br /><strong
+                  >&bull; Protein per 100g (High fat e.g. 4% milkfat or creamed):</strong
+                >
+                Typically contains about 13-15 grams of protein.
+                <br /><strong
+                  >The fat content would be higher, usually around 4-5 grams
+                  per 100g.</strong
+                >
+              </p>
+              <img src="nutrition-facts-cottage-cheese.webp" alt="Cottage Cheese" />
+            </li>
 
-            #overlay p {
-                font-size: 0.8em; /* Smaller font for instructions */
-            }
+            <li>
+              <h2>Tofu and Tempeh</h2>
+              <p class="description">
+                Tofu and tempeh are both excellent plant-based protein sources
+                derived from soybeans, but they differ significantly in their
+                production texture, flavor, and nutritional profiles,
+                particularly in protein content per 100g.
+              </p>
+              <p class="description">
+                Tempeh, a fermented soybean product, has a firmer texture and a
+                nutty, earthy flavor. The fermentation process makes its
+                nutrients, including protein, more digestible. It's a versatile
+                ingredient for vegan and vegetarian dishes, often used in
+                stir-fries, sandwiches, or as a meat substitute.
+                <br /><strong
+                  >&bull; Tempeh (per 100g):</strong
+                >
+                Typically contains around 19-20 grams of protein.
+              </p>
+              <img src="tempeh_annotated2-343c660c47eb41df916d0b0e93f61426.jpg" alt="Tempeh" />
+              <p class="description">
+                There are 4 Types of tofus:<br />
+                <br />&bull; <strong>Silken tofu</strong><br />
+                &nbsp;&nbsp;&nbsp;~4-6 grams per 100g.<br />
+                <br />&bull; <strong>Soft tofu</strong><br />
+                &nbsp;&nbsp;&nbsp;~5-8 grams per 100g.<br />
+                <br />&bull; <strong>Firm tofu</strong><br />
+                &nbsp;&nbsp;&nbsp;~10-12 grams per 100g.<br />
+                <br />&bull; <strong>Extra-firm tofu</strong><br />
+                &nbsp;&nbsp;&nbsp;~12-15 grams per 100g.
+              </p>
+              <img src="tempeh-vs-tofu.webp" alt="Tofu and Tempeh" />
+            </li>
+            <li>
+              <h2>Banana's</h2>
+              <p class="description">
+                Bananas are not typically considered a high-protein food, but
+                they do contain some protein along with being a great source of
+                carbohydrates, vitamins, and minerals. They are filled with carbs,
+                potassium, vitamin C, and vitamin B6, making them a nutritious
+                choice for a quick snack or pre-workout fuel.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 1.1 to 1.3 grams of protein.
+              </p>
+            </li>
 
-            #poem-container {
-                font-size: 1.5em; /* Significantly adjust font size for smaller screens */
-                padding: 15px; /* Adjust padding */
-                background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background for text readability */
-                border-radius: 10px;
-                width: calc(100% - 40px); /* Account for padding */
-                margin-left: 20px; /* Center with margin */
-                margin-right: 20px; /* Center with margin */
-            }
+            <li>
+              <h2>Almond Butter</h2>
+              <p class="description">
+                Almond butter is a delicious and nutritious spread made from
+                ground almonds. It's rich in healthy fats, protein, and various
+                vitamins and minerals. It's a great alternative to peanut butter
+                and can be used in smoothies, on toast, or as a dip for fruits.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 21-25 grams of protein.
+            </li>
 
-            .poem-line {
-                margin-bottom: 15px; /* Reduce space between lines on mobile */
-            }
+            <li>
+              <h2>Cashew butter</h2>
+              <p class="description">
+                Cashew butter is a creamy and delicious spread made from ground
+                cashews. It's rich in healthy fats, protein, and various vitamins
+                and minerals. It's a great alternative to peanut butter and can
+                be used in smoothies, on toast, or as a dip for fruits.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 18-20 grams of protein.
+            </li>
 
-            #lullaby-song-player {
-                width: 95%; /* Almost full width on mobile */
-                margin-top: 25px; /* Adjust spacing */
-            }
+            <li>
+              <h2>Cashew butter</h2>
+              <p class="description">
+                Cashew butter is a creamy and delicious spread made from ground
+                cashews. It's rich in healthy fats, protein, and various vitamins
+                and minerals. It's a great alternative to peanut butter and can
+                be used in smoothies, on toast, or as a dip for fruits.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 18-20 grams of protein.
+              </p>
+            </li>
 
-            #final-image {
-                max-width: 90%; /* Adjust for smaller screens */
-                margin-top: 40px; /* Adjust spacing */
-                margin-bottom: 40px; /* Adjust spacing */
-            }
-        }
+            <li>
+              <h2>Tahini</h2>
+              <p class="description">
+                Tahini is a paste made from ground sesame seeds. It's rich in
+                healthy fats, protein, and various vitamins and minerals. It's
+                often used in Middle Eastern dishes like hummus and baba ghanoush,
+                but can also be used as a dressing or dip.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 17-20 grams of protein.
+                </p>
+            </li>
 
-        /* Additional Media Query for very small phones (e.g., iPhone SE) */
-        @media (max-width: 480px) {
-            #overlay h1 {
-                font-size: 1.2em;
-            }
 
-            #overlay p {
-                font-size: 0.7em;
-            }
+              
 
-            #poem-container {
-                font-size: 1.2em; /* Even smaller font size for very small screens */
-                padding: 10px;
-            }
 
-            .poem-line {
-                margin-bottom: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
+            <li>
+              <h2>Peanut Butter</h2>
+              <p class="description">
+                Peanut butter is a popular spread made from ground peanuts. It's
+                rich in healthy fats, protein, and various vitamins and minerals.
+                It's filled with carbs also,but not too much.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 25 grams of protein.
+              </p>
+            </li>
+            
+            <li>
+              <h2>Oats</h2>
+              <p class="description">
+                Oats are a whole grain that is rich in fiber, vitamins, and
+                minerals. They are often consumed as oatmeal or used in baking.
+                Oats are a great source of complex carbohydrates and provide
+                sustained energy.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 13-16 grams of protein.
+              </p>
+            </li>
+            <li>
+              <h2>Royal Jelly</h2>
+              <p class="description">
+                Royal jelly is a 
+                substance produced by honeybees to feed their
+                queen. It's rich in 
+                nutrients, including proteins, vitamins,
+                carbs, zinc, magnisium and etc.
+                . While not a traditional protein source, 
+                it does
+                contain a significant amount of protein.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 12-15 grams of protein.
+            </li>
+            <li>
+              <h2>Black Garlic</h2>
+              <p 
+class="description">
+                Black garlic is a type of aged garlic that has a sweet, 
+                tangy flavor and is rich in antioxidants. 
+                It's not a traditional protein source, but it does contain some protein.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 6-8 grams of protein.
+              </p>
+            </li>
+            <li>
+              <h2>Sea Vegetables(Seaweeds)</h2>
+              <p class="description">
+                there are some edible seawweeds like Nori,Wakame,Kombu and Dulse.
+                They are rich in protein and not only that they are rich in
+                many minerals also.
+              </p>
+              <p class="description">
+                <br /><strong
+                  >&bull; Nori:</strong
+                >
+                Nori is commonly used in sushi and contains about 30-35 grams of
+                protein per 100g.
+              </p>
+              <img src="nori-seaweed_annotated-3f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Nori Seaweed" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Wakame:</strong
+                >
+                Wakame is often used in soups and salads, providing about 10-15
+                grams of protein per 100g.
+              </p>
+              <img src="wakame-seaweed_annotated-4f0b1c5d6a4e4f8b9c7d5e8c1    f3b6c7a.jpg" alt="Wakame Seaweed" /><s></s>
+              <p class="description">
+                <br /><strong
+                  >&bull; Kombu:</strong
+                >
+                Kombu is used in broths and contains about 10-15 grams of protein
+                per 100g.
+              </p>
+              <img src="kombu-seaweed_annotated-5f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Kombu Seaweed" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Dulse:</strong
+                >
+                Dulse is a red seaweed that can be eaten as a snack or added to
+                dishes, providing about 20-25 grams of protein per 100g.
+              </p>
+              <img src="dulse-seaweed_annotated-6f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Dulse Seaweed" />
+            </li>
 
-    <div id="overlay">
-        <h1>Click to Enter</h1>
-        <p>(Tap anywhere to start the experience)</p>
+            <li>
+              <h2>Sea Food (Green-lipped Mussels, Cod, e.t.c)</h2>
+              <p classs="description">
+                <strong
+                  >&bull; Green-lipped Mussels:</strong
+                >
+                Green-lipped mussels are a type of shellfish native to New
+                Zealand. They are known for their high protein content and
+                omega-3 fatty acids, making them a nutritious seafood option.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 20-25 grams of protein.
+              </p>
+            </li>
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Cod:</strong
+                >
+                Cod is a popular white fish that is low in fat and high in
+                protein. It's often used in fish and chips, but can also be
+                grilled, baked, or steamed.
+                <br /><strong>Protein per 100g: ~18-20 grams.</strong>
+              </p>
+            
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Shrimp:</strong
+                >
+                Shrimp is a low-calorie seafood option that is high in protein
+                and low in fat. It's versatile and can be used in various dishes,
+                from stir-fries to salads.
+                <br /><strong>Protein per 100g: ~20-24 grams.</strong>
+              </p>
+              
+
+              
+                <p class="description">
+                  <strong
+                    >&bull; Crab:</strong
+                  >
+                  Crab is a delicious seafood option that is low in fat and high
+                  in protein. It's often used in crab cakes, soups, and salads.
+                  <br /><strong>Protein per 100g: ~18-20 grams.</strong>
+              
+
+              
+                <p class="description">
+                  <strong
+                    >&bull; Lobster:</strong
+                  >
+                  Lobster is a luxurious seafood option that is low in fat and
+                  high in protein. It's often served boiled or steamed, and can
+                  be used in various dishes.
+                  <br /><strong>Protein per 100g: ~18-20 grams.</strong>
+                </p>
+              </li>
+
+              
+                <p class="description">
+                  <strong
+                    >&bull; Octopus:</strong
+                  >
+                  Octopus is a unique seafood option that is low in fat and high
+                  in protein. It's often grilled or used in salads and stews.
+                  <br /><strong>Protein per 100g: ~15-20 grams.</strong>
+                </p>
+              
+
+              <p class="description">
+                <strong
+                  >&bull; Haddock:</strong
+                >
+                Haddock is a white fish that is low in fat and high in protein.
+                It's often used in fish and chips, but can also be grilled,
+                baked, or steamed.
+                <br /><strong>Protein per 100g: ~18-20 grams.</strong>
+              </p>
+            
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Sardines:</strong
+                >
+                Sardines are small, oily fish that are high in protein and omega-3
+                fatty acids. They're often canned and can be eaten on their own or
+                added to salads and pasta dishes.
+                <br /><strong>Protein per 100g: ~20-25 grams.</strong>
+              </p>
+            
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Anchovies:</strong
+                >
+                Anchovies are small, salty fish that are often used as a flavoring
+                in dishes like Caesar salad and pizza. They're high in protein and
+                omega-3 fatty acids.
+                <br /><strong>Protein per 100g: ~20-25 grams.</strong>
+              </p>  
+            
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Mackerel:</strong
+                >
+                Mackerel is a fatty fish that is high in protein and omega-3 fatty
+                acids. It's often grilled or smoked and can be used in salads or
+                sandwiches.
+                <br /><strong>Protein per 100g: ~20-25 grams.</strong>
+              </p>
+        
+            
+              <p class="description">
+                <strong
+                  >&bull; Clams:</strong
+                >
+                Clams are a type of shellfish that are low in fat and high in
+                protein. They're often used in soups, pasta dishes, or eaten on
+                their own.
+                <br /><strong>Protein per 100g: ~15-20 grams.</strong>
+              </p>
+            
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Oysters:</strong
+                >
+                Oysters are a type of shellfish that are low in fat and high in
+                protein. They're often eaten raw on the half shell, but can also
+                be grilled or baked.
+                <br /><strong>Protein per 100g: ~9-12 grams.</strong>
+              </p>
+            
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Scallops:</strong
+                >
+                Scallops are a type of shellfish that are low in fat and high in
+                protein. They're often seared or grilled and can be used in pasta
+                dishes or salads.
+                <br /><strong>Protein per 100g: ~20-25 grams.</strong>
+              </p>
+            
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Squid:</strong
+                >
+                Squid, also known as calamari, is a low-fat seafood option that is
+                high in protein. It's often grilled or fried and can be used in
+                salads or pasta dishes.
+                <br /><strong>Protein per 100g: ~15-20 grams.</strong>
+              </p>
+            
+
+           
+              <p class="description">
+                <strong
+                  >&bull; Caviar:</strong
+                >
+                Caviar is a luxury seafood option made from fish eggs. It's high in
+                protein and omega-3 fatty acids, but also high in sodium.
+                <br /><strong>Protein per 100g: ~25-30 grams.</strong>
+              </p>
+            
+
+            
+              <p class="description">
+                <strong
+                  >&bull; Fish Roe:</strong
+                >
+                Fish roe, or fish eggs, are a nutritious seafood option that is
+                high in protein and omega-3 fatty acids. They can be eaten on their
+                own or used as a topping for sushi or salads.
+                <br /><strong>Protein per 100g: ~25-30 grams.</strong>
+              </p>
+            
+           
+              <p class="description">
+                <strong
+                  >&bull; Miso:</strong
+                >
+                Miso is a traditional Japanese seasoning made from fermented soybeans.
+                It's rich in protein, probiotics, and various vitamins and minerals.
+                <br /><strong>Protein per 100g: ~10-12 grams.</strong>
+              </p>
+
+              
+            <li>
+              <h2>Protein Supplements (Whey, Casein, Plant-based)</h2>
+              <p class="description">
+                Protein supplements are a convenient way to boost your protein
+                intake, especially if you're struggling to get enough from whole
+                foods. They come in various forms, including whey, casein, and
+                plant-based options.
+                <br /><strong
+                  >&bull; Whey Protein:</strong
+                >
+                Derived from milk, whey protein is quickly absorbed and is great
+                for post-workout recovery.
+                <br /><strong>Per scoop (30g) typically contains 20-25g of protein.</strong>
+              </p>
+              <img src="whey-protein_annotated-3f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Whey Protein" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Casein Protein:</strong
+                >
+                Also derived from milk, casein is digested more slowly, making it
+                ideal for nighttime use.
+                <br /><strong>Per scoop (30g) typically contains 20-25g of protein.</strong>
+              </p>
+              <img src="casein-protein_annotated-4f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Casein Protein" />
+              <p class="description">
+                <br /><strong
+                  >&bull; Plant-based Protein:</strong
+                >
+                Made from sources like peas, rice, or hemp, these are great for
+                vegans and those with lactose intolerance.
+                <br /><strong>Per scoop (30g) typically contains 15-25g of protein.</strong>
+              </p>
+              <img src="plant-based-protein_annotated-5f0b1c5d6a4e4f8b9c7d5e8c1f3b6c7a.jpg" alt="Plant-based Protein" />
+            </li>
+            <li>
+              <h2>Nutritional Yeast</h2>
+              <p class="description">
+                Nutritional yeast is 
+                a deactivated yeast that 
+                is often used as a
+                cheese substitute in vegan cooking. 
+                It's rich in protein,
+                vitamin, particularly B vitamins.
+                <br /><strong
+                  >&bull; Protein per 100g:</strong
+                >
+                Approximately 40-50 grams of protein.
+            </li>
+            <li>
+              <h2>Protein Bars</h2> <p class="description">
+                <br /><strong
+                  >&bull; Protein Bars:</strong
+                >
+                These are convenient snacks that can provide
+                  a quick protein boost. They come in various
+                  flavors and they also have different protein sources and nutrition size.
+                <br /><strong>Per bar (60g) typically contains 15-25g of protein.</strong>
+              </p>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <aside class="sidebar">
+        <h2>Related Info</h2>
+        <p>Check out these links:</p>
+        <ul>
+          <li><a href="#">Workout Plans</a></li>
+          <li><a href="#">Healthy Recipes</a></li>
+          <li><a href="#">Supplements Guide</a></li>
+        </ul>
+        <h3>Gym Locations</h3>
+        <p>Find a gym near you!</p>
+        <button>Find Now</button>
+      </aside>
     </div>
-
-    <video autoplay muted loop playsinline id="background-video" poster="path/to/your/video-poster.jpg">
-        <source src="mylivewallpapers.com-Makoto-Yuki-Persona-3.mp4" type="video/mp4">
-        <source src="mylivewallpapers.com-Makoto-Yuki-Persona-3.webm" type="video/webm">
-        Your browser does not support the video tag.
-    </video>
-
-    <div id="main-content-wrapper">
-        <div id="poem-container">
-            <span class="poem-line">Within the inner heart I plead</span>
-            <span class="poem-line">For you to talk to me</span>
-            <span class="poem-line">I want to hear all the good and bad</span>
-            <span class="poem-line">The new stories you have</span>
-            <span class="poem-line">As I drift across the sky</span>
-            <span class="poem-line">The hour hand turns high</span>
-            <span class="poem-line">So goodnight</span>
-            <span class="poem-line">Let me sing a lullaby, love</span>
-            <span class="poem-line">I'll be seeing you, baby</span>
-            <span class="poem-line">Sorry for doing that mistake my love, I promise not to again.</span>
-            <span class="poem-line">I will learn from my mistakes.</span>
-            <span class="poem-line">I Love You.</span>
-        </div>
-
-        <img id="final-image" src="path/to/your/final-image.jpg" alt="A special image for you">
-
-        <audio id="lullaby-song-player" controls>
-            <source src="special.mp4" type="video/mp4">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const lines = document.querySelectorAll('.poem-line');
-            const song = document.getElementById('lullaby-song-player');
-            const video = document.getElementById('background-video');
-            const overlay = document.getElementById('overlay');
-            const finalImage = document.getElementById('final-image');
-            let index = 0;
-
-            const lineTimings = [
-                { displayDuration: 1600, delayBeforeNextLine: 1000 }, // "Within the inner heart I plead"
-                { displayDuration: 1500, delayBeforeNextLine: 1000 }, // "For you to talk to me"
-                { displayDuration: 1500, delayBeforeNextLine: 1200 }, // "I want to hear all the good and bad"
-                { displayDuration: 1500, delayBeforeNextLine: 1500 }, // "The new stories you have"
-                { displayDuration: 1200, delayBeforeNextLine: 1000 }, // "As I drift across the sky"
-                { displayDuration: 1300, delayBeforeNextLine: 1500 }, // "The hour hand turns high"
-                { displayDuration: 700,  delayBeforeNextLine: 800 },  // "So goodnight"
-                { displayDuration: 4800, delayBeforeNextLine: 1200 }, // "Let me sing a lullaby, love"
-                { displayDuration: 5000, delayBeforeNextLine: 800 },  // "I'll be seeing you, baby" (ADJUSTED DELAY for new lines)
-                // NEW LINES
-                { displayDuration: 3000, delayBeforeNextLine: 1500 }, // "Sorry for doing that mistake my love, I promise not to again"
-                { displayDuration: 2500, delayBeforeNextLine: 1000 }, // "I will learn from my mistakes"
-                { displayDuration: 2000, delayBeforeNextLine: 0 }    // "I Love You" (No delay after this, as image comes next)
-            ];
-
-            // Function to start the poem animation
-            function animatePoem() {
-                if (index < lines.length) {
-                    const currentLine = lines[index];
-                    const timings = lineTimings[index];
-
-                    currentLine.classList.add('visible');
-
-                    setTimeout(() => {
-                        currentLine.classList.remove('visible');
-                        index++;
-                        if (index < lines.length) {
-                            setTimeout(animatePoem, timings.delayBeforeNextLine);
-                        } else {
-                            // All poem lines are done, now show the image
-                            setTimeout(() => {
-                                if (finalImage) {
-                                    finalImage.classList.add('visible');
-                                    // Optionally, you might want to pause/stop the video/audio here
-                                    // video.pause();
-                                    // song.pause();
-                                }
-                            }, 2000); // Delay before image appears after the last text fades out
-                        }
-                    }, timings.displayDuration);
-                }
-            }
-
-            // Function to start both video and song (triggered by user click)
-            const startMediaAndExperience = () => {
-                video.play().catch(error => {
-                    console.warn("Video play prevented:", error);
-                });
-
-                song.play().catch(error => {
-                    console.warn("Audio play prevented:", error);
-                });
-
-                animatePoem();
-                overlay.classList.add('hidden');
-            };
-
-            overlay.addEventListener('click', startMediaAndExperience);
-        });
-    </script>
-
-</body>
+  </body>
 </html>
