@@ -113,6 +113,12 @@ p {
   color: #444;
 }
 
+.has {
+    position: relative;
+    display:block;
+    text-align: center;
+}
+
 .description {
   font-size: 1.15em;
   line-height: 1.8;
