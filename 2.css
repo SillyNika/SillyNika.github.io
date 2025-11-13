@@ -1,20 +1,28 @@
-s/* Reset & Base */
+/* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 body {
+
   margin: 0;
+
   background-color: #f2f4f7;
-  font-family: 'Open Sans', sans-serif;
+
+  font-family: Open Sans, sans-serif;
+
   line-height: 1.7;
+
   color: #2c3e50;
+
   overflow-x: hidden;
+
 }
+
 
 /* Layout Container */
 .content-wrapper {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 90%;
   max-width: 1100px;
   margin: 30px auto;
@@ -253,7 +261,7 @@ hr {
   justify-content: space-between;
   background-color: #2c3e50;
   padding: 10px 30px;
-  font-family: niccone;
+  
 }
 
 /* --- LOGO CIRCLE --- */
@@ -324,4 +332,3 @@ hr {
 .float-right {
   margin-left: auto;
 }
-
