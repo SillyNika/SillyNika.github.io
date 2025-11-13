@@ -33,7 +33,6 @@ body {
   border-radius: 12px;
   flex-wrap: wrap;
 }
-
 /* Main Content Area */
 .main-content {
   flex: 3;
@@ -53,17 +52,6 @@ body {
 }
 
 
-
-.main-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0 10px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 56px;
-}
-
 .main-nav li.float-right {
   margin-left: auto;
 }
@@ -79,6 +67,7 @@ body {
   transition: background 0.3s, color 0.3s;
   line-height: 56px;
 }
+
 
 .main-nav a:hover {
   background-color: #3e536b;
@@ -332,3 +321,4 @@ hr {
 .float-right {
   margin-left: auto;
 }
+
